@@ -22,7 +22,8 @@
         <h1 class="fw-bold">AI Universe Hub</h1>
         <button type="button" class="btn btn-danger fw-semibold">Sort by date</button>
     </header>
-    <main class="container">
+    <main class="container ">
+        <ol class="feature-list"></ol>
         <div id="ai-container" class="row row-cols-1 row-cols-md-3 g-4">
             <!-- <div class="col">
                 <div class="card h-100">
@@ -35,6 +36,18 @@
                 </div>
             </div> -->
         </div>
+        <!-- <div>
+            <ol class="li-list"></ol>
+        </div> -->
+        <section>
+            <!-- <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <p></p>
+                    <p><i class="far fa-calendar-alt"></i></p>
+                </div>
+                <div><i class="fas fa-arrow-right"></i></div>
+            </div> -->
+        </section>
 
     </main>
 
@@ -52,3 +65,18 @@
 </body>
 
 </html>
+<!-- // <div>${singleAiTool.features[0]}</div>
+// <div>${singleAiTool.features[1]}</div>
+// <div>${singleAiTool.features[2]}</div> -->
+
+
+
+
+<!-- const feature = document.getElementsByClassName('feature-list')
+        const orderlist = document.createElement('ol')
+        singleAiTool.features.forEach(item => {
+            const lists = document.createElement('li')
+            lists.innerHtml = item;
+            orderlist.appendChild(lists)
+        })
+        feature.appendChild(orderlist) -->
