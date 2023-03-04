@@ -32,9 +32,6 @@ const displayAiData = (aiTools) => {
 
     aiTools.forEach(singleAiTool => {
 
-        // item.text.forEach( (text, idx) => {
-        //     document.getElementById("t"+(idx+1).toString()).innerHTML = text
-        //   })
         console.log(singleAiTool);
         const singleAiToolDiv = document.createElement('div');
         singleAiToolDiv.classList.add('col');
@@ -43,7 +40,6 @@ const displayAiData = (aiTools) => {
             console.log(features);
 
         });
-
 
         singleAiToolDiv.innerHTML = `
         <div class="card h-100 p-4">
@@ -144,8 +140,6 @@ const showSingleData = (singleData) => {
     `
 
 };
-
-
 
 
 // spinner function
