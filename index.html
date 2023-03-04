@@ -24,7 +24,7 @@
     </header>
     <main class="container ">
         <section>
-            <!-- <ol class="feature-list"></ol> -->
+            <!-- <ol id="feature-list"></ol> -->
             <div id="ai-container" class="row row-cols-1 row-cols-md-3 g-4">
                 <!-- <div class="col">
                 <div class="card h-100">
@@ -38,9 +38,32 @@
             </div> -->
             </div>
 
+
             <!--------------- see more button------------ -->
             <div id="see-more" class="text-center">
                 <div onclick="showAllData()" class="btn btn-danger px-4">See More</div>
+            </div>
+        </section>
+        <!-- modal contents -->
+        <section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="idDetailModal" tabindex="-1" aria-labelledby="idDetailModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="idDetailModalLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="single-data-details" class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
