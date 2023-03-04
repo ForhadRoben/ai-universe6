@@ -41,17 +41,7 @@ const displayAiData = (aiTools) => {
 
         singleAiTool.features.forEach(features => {
             console.log(features);
-            //     const orderList = document.createElement('ol')
-            //     // const abc = <orderList><li>features</li>
-            //     //     <li>features</li>
-            //     //     <li>features</li></>
 
-            //     orderList.innerHTML += `<li >${singleAiTool.features}</li>`
-
-            //     // document.getElementById('feature-list').innerHTML = features
-            //     // const orderList = document.createElement('ol')
-            //     // orderList.innerHTML += `<li >${singleAiTool.features}</li> `
-            //     // singleAiToolDiv.appendChild(orderList)
         });
 
 
@@ -103,16 +93,49 @@ const showSingleData = (singleData) => {
     // const container = document.getElementById("modal-info");
     console.log(singleData);
     const singleDataDetails = document.getElementById('single-data-details');
+    // singleData.classList.add('col');
     console.log(singleData.pricing[0]);
     singleDataDetails.innerHTML = `
-    <h5>${singleData ? singleData.description : 'No Storage Information '}</h5>
-    <p>${singleData.pricing ? singleData.pricing[0].price : 'No Storage Information '}</p>
-    <p>${singleData.pricing ? singleData.pricing[0].plan : 'No Storage Information '}</p>
+    
+        <div class="card h-100 ">
+        <div class="card-body">
+            <h5 class="card-title mb-3">${singleData ? singleData.description : 'No Description '}</h5>
+            <div class="d-flex gap-2 justify-content-evenly align-items-center">
+                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[0]?.price ? singleData.pricing[0].price : 'Free Of Cost '}  ${singleData.pricing[0].plan} </p>
+                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData?.pricing[0]?.price ? singleData.pricing[1].price : 'Free Of Cost '}   ${singleData.pricing[1].plan}</p>
+                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData?.pricing[0]?.price ? singleData.pricing[2].price : 'Free Of Cost '}   ${singleData.pricing[2].plan}</p>
+            </div>
+            <div class="d-flex gap-2 justify-content-between align-items-center">
+                <h6>Features</h6>
+                    <ol>
+                        
+                    </ol>
+                <h6>Integrations</h6>
+                    <ol>
+                
+                    </ol>
+            </div>
+        </div>
+        </div>
+        
+        <div class="card h-100">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting</p>
+        </div>
+        </div>
+        
+    
     `
 
 };
 
 // <p>Release Date: ${phone.releaseDate ? phone.releaseDate : 'No Release Date Found'}</p>
+{/* <li>${singleAiTool.features.join("<li>")}</li>  */ }
+{/* <h5>${singleData ? singleData.description : 'No Storage Information '}</h5>
+    <p>${singleData.pricing ? singleData.pricing[0].price : 'No Storage Information '}</p>
+    <p>${singleData.pricing ? singleData.pricing[0].plan : 'No Storage Information '}</p> */}
 
 
 
