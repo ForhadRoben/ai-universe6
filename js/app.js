@@ -1,14 +1,35 @@
-
+// loadData from api 
 const loadData = async () => {
     const url = ` https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url);
     const data = await res.json();
-    displayAiData(data.data.tools);
+    displayAiData(data.data.tools.slice(0, 6));
 }
+
+// see More function 
+
+const showAllData = async () => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`);
+    const data = await res.json();
+    displayAiData(data.data.tools);
+};
+
+// display data from api
 
 const displayAiData = (aiTools) => {
     console.log(aiTools);
     const aiContainer = document.getElementById('ai-container')
+    aiContainer.innerHTML = '';
+
+    const seeMore = document.getElementById('see-more');
+    if (aiTools.length > 6) {
+        seeMore.classList.add('d-none')
+    }
+    else {
+        seeMore.classList.remove('d-none')
+    }
+
+
     aiTools.forEach(singleAiTool => {
         // console.log(singleAiTool);
         const singleAiToolDiv = document.createElement('div');
@@ -43,11 +64,13 @@ const displayAiData = (aiTools) => {
         `;
 
         aiContainer.appendChild(singleAiToolDiv)
+
     });
 
     // stop spinner
     toggleSpinner(false);
 }
+// spinner function
 const toggleSpinner = isLoading => {
     const spinnerSection = document.getElementById('spinner');
     if (isLoading) {
@@ -59,4 +82,5 @@ const toggleSpinner = isLoading => {
 }
 // start spinner
 toggleSpinner(true);
+
 loadData()
