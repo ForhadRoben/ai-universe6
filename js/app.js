@@ -94,7 +94,8 @@ const showSingleData = (singleData) => {
     console.log(singleData);
     const singleDataDetails = document.getElementById('single-data-details');
     // singleData.classList.add('col');
-    console.log(singleData.pricing[0]);
+    console.log(singleData.features[1].feature_name);
+    console.log(singleData.integrations.join());
     singleDataDetails.innerHTML = `
     
         <div class="card h-100 ">
@@ -107,13 +108,15 @@ const showSingleData = (singleData) => {
             </div>
             <div class="d-flex gap-2 justify-content-between align-items-center">
                 <h6>Features</h6>
-                    <ol>
-                        
-                    </ol>
+                    <ul>
+                    </li>${singleData?.features[1]?.feature_name}</li>
+                    </li>${singleData?.features[2]?.feature_name}</li>
+                    </li>${singleData?.features[3]?.feature_name}</li>
+                    </ul>
                 <h6>Integrations</h6>
-                    <ol>
-                
-                    </ol>
+                    <ul>
+                    <li>${singleData.integrations.join("<li>")}</li> 
+                    </ul>
             </div>
         </div>
         </div>
