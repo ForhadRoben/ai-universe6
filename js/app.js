@@ -94,7 +94,7 @@ const showSingleData = (singleData) => {
     console.log(singleData);
     const singleDataDetails = document.getElementById('single-data-details');
     // singleData.classList.add('col');
-    console.log(singleData.features[1].feature_name);
+    console.log(singleData.accuracy.score);
     // console.log(singleData.integrations.join());
     singleDataDetails.innerHTML = `
     
@@ -102,29 +102,38 @@ const showSingleData = (singleData) => {
         <div class="card-body" >
             <h5 class="card-title mb-3">${singleData ? singleData.description : 'No Description '}</h5>
             <div class="d-flex gap-2 justify-content-evenly align-items-center">
-                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[0]?.price !== '0' ? singleData.pricing[0].price : 'Free Of Cost '}  ${singleData.pricing[0].plan} </p>
+                <p class="card-text border border-white rounded-1 p-3 bg-danger-subtle">${singleData.pricing[0]?.price !== '0' ? singleData.pricing[0].price : 'Free Of Cost '}  ${singleData.pricing[0].plan} </p>
 
-                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[1]?.price !== '0' ? singleData.pricing[1].price : 'Free Of Cost '}   ${singleData.pricing[1].plan}</p>
+                <p class="card-text border border-white rounded-1 p-3 bg-danger-subtle">${singleData.pricing[1]?.price !== '0' ? singleData.pricing[1].price : 'Free Of Cost '}   ${singleData.pricing[1].plan}</p>
 
-                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[2]?.price !== '0' ? singleData.pricing[2].price : 'Free Of Cost '}   ${singleData.pricing[2].plan}</p>
+                <p class="card-text border border-white rounded-1 p-3 bg-danger-subtle">${singleData.pricing[2]?.price !== '0' ? singleData.pricing[2].price : 'Free Of Cost '}   ${singleData.pricing[2].plan}</p>
             </div>
             <div  class="d-flex  gap-2 justify-content-between align-items-center">
-                <h6>Features</h6>
-                    <ul>
+                <div class="d-flex flex-column">
+                <h6 >Features</h6>
+                 <ul>
                     </li>${singleData.features[1] ? singleData.features[1].feature_name : ''}</li>
+                    <br>
                     </li>${singleData.features[2] ? singleData.features[2].feature_name : ''}</li>
+                    <br>
                     </li>${singleData.features[3] ? singleData.features[3].feature_name : ''}</li>
+                    <br>
                     </li>${singleData.features[4] ? singleData.features[4].feature_name : ''}</li>
-                    </ul>
+                 </ul>
+                </div>
+                <div class="d-flex flex-column">
                 <h6>Integrations</h6>
-                    <ul>
-                    <li>${singleData.integrations ? singleData.integrations.join("<li>") : 'No data Found'}</li> 
-                    </ul>
+                <ul>
+                <li>${singleData.integrations ? singleData.integrations.join("<li>") : 'No data Found'}</li> 
+                </ul>
+                </div>
             </div>
         </div>
         </div>
         
         <div class="card h-100">
+        <p class="border border-1 rounded bg-danger p-3 position-absolute top-0 end-0 text-light fw-semibold">${singleData.accuracy.score !== null ?
+            (singleData.accuracy.score) * 100 : 'No data Found'}% accuracy</p>
         <img src="${singleData.image_link[0]}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${singleData.input_output_examples[0].input}</h5>
@@ -135,23 +144,6 @@ const showSingleData = (singleData) => {
     `
 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
