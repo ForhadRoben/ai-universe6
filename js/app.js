@@ -95,50 +95,48 @@ const showSingleData = (singleData) => {
     const singleDataDetails = document.getElementById('single-data-details');
     // singleData.classList.add('col');
     console.log(singleData.features[1].feature_name);
-    console.log(singleData.integrations.join());
+    // console.log(singleData.integrations.join());
     singleDataDetails.innerHTML = `
     
         <div class="card h-100 ">
-        <div class="card-body">
+        <div class="card-body" >
             <h5 class="card-title mb-3">${singleData ? singleData.description : 'No Description '}</h5>
             <div class="d-flex gap-2 justify-content-evenly align-items-center">
-                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[0]?.price ? singleData.pricing[0].price : 'Free Of Cost '}  ${singleData.pricing[0].plan} </p>
-                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData?.pricing[0]?.price ? singleData.pricing[1].price : 'Free Of Cost '}   ${singleData.pricing[1].plan}</p>
-                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData?.pricing[0]?.price ? singleData.pricing[2].price : 'Free Of Cost '}   ${singleData.pricing[2].plan}</p>
+                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[0]?.price !== '0' ? singleData.pricing[0].price : 'Free Of Cost '}  ${singleData.pricing[0].plan} </p>
+
+                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[1]?.price !== '0' ? singleData.pricing[1].price : 'Free Of Cost '}   ${singleData.pricing[1].plan}</p>
+
+                <p class="card-text border border-white rounded-1 p-3 bg-info">${singleData.pricing[2]?.price !== '0' ? singleData.pricing[2].price : 'Free Of Cost '}   ${singleData.pricing[2].plan}</p>
             </div>
-            <div class="d-flex gap-2 justify-content-between align-items-center">
+            <div  class="d-flex  gap-2 justify-content-between align-items-center">
                 <h6>Features</h6>
                     <ul>
-                    </li>${singleData?.features[1]?.feature_name}</li>
-                    </li>${singleData?.features[2]?.feature_name}</li>
-                    </li>${singleData?.features[3]?.feature_name}</li>
+                    </li>${singleData.features[1] ? singleData.features[1].feature_name : ''}</li>
+                    </li>${singleData.features[2] ? singleData.features[2].feature_name : ''}</li>
+                    </li>${singleData.features[3] ? singleData.features[3].feature_name : ''}</li>
+                    </li>${singleData.features[4] ? singleData.features[4].feature_name : ''}</li>
                     </ul>
                 <h6>Integrations</h6>
                     <ul>
-                    <li>${singleData.integrations.join("<li>")}</li> 
+                    <li>${singleData.integrations ? singleData.integrations.join("<li>") : 'No data Found'}</li> 
                     </ul>
             </div>
         </div>
         </div>
         
         <div class="card h-100">
-        <img src="" class="card-img-top" alt="...">
+        <img src="${singleData.image_link[0]}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting</p>
+            <h5 class="card-title">${singleData.input_output_examples[0].input}</h5>
+            <p class="card-text">${singleData.input_output_examples[0].output}</p>
         </div>
         </div>
-        
     
     `
 
 };
 
-// <p>Release Date: ${phone.releaseDate ? phone.releaseDate : 'No Release Date Found'}</p>
-{/* <li>${singleAiTool.features.join("<li>")}</li>  */ }
-{/* <h5>${singleData ? singleData.description : 'No Storage Information '}</h5>
-    <p>${singleData.pricing ? singleData.pricing[0].price : 'No Storage Information '}</p>
-    <p>${singleData.pricing ? singleData.pricing[0].plan : 'No Storage Information '}</p> */}
+
 
 
 
